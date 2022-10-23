@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+		// JavaScript code for the above approach
+		function firstNonRepeating(arr, n) {
+			// Loop for checking each element
+			for (let i = 0; i < n; i++) {
+				let j;
+				// Checking if ith element is present in array
+				for (j = 0; j < n; j++)
+					if (i != j && arr[i] == arr[j])
+						break;
+				// if ith element is not present in array
+				// except at ith index then return element	
+				if (j == n)
+					return arr[i];
+			}
+			return -1;
+		}
+
+		// Driver code
+
+		let arr = [9, 4, 9, 6, 7, 4];
+		let n = arr.length;
+		document.write(firstNonRepeating(arr, n));
+
+
+
+// This code is contributed by Potta Lokesh
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Javascript implementation to count subarrays with
+        // equal number of 1's and 0's
+        
+        function countSubarrWithEqualZeroAndOne(arr, n)
+        {
+            var mp = new Map();
+            var sum = 0;
+            let count = 0;
+            
+            for (var i = 0; i < n; i++) {
+                //Replacing 0's in array with -1
+                if (arr[i] == 0)
+                    arr[i] = -1;
+        
+                sum += arr[i];
+        
+                //If sum = 0, it implies number of 0's and 1's are
+                //equal from arr[0]..arr[i]
+                if (sum == 0)
+                    count += 1;
+        
+                if (mp.has(sum) == true)
+                    count += mp.get(sum);
+                        
+                if(mp.has(sum) == false)
+                    mp.set(sum, 1);
+                else
+                    mp.set(sum, mp.get(sum)+1);
+            }
+            return count;
+        }
+        
+        // Driver program to test above
+        var arr = [1, 0, 0, 1, 0, 1, 1];
+        var n = arr.length;
+        document.write( "Count = "
+            + countSubarrWithEqualZeroAndOne(arr, n));
+        
+        // This code is contributed by noob2000.
+        </script>
+         
+</body>
+</html>
